@@ -22,16 +22,19 @@ const TaskForm = props => {
 	};
 
 	return (
-		<form onSubmit={submit}>
+		<form onSubmit={submit} className="text-center py-4">
 			<input
+				className="fs-2"
 				type="text"
-				placeholder="Añadir tarea"
+				placeholder="Escribe una tarea"
 				value={inputText}
 				onChange={handleForm}
 			/>
-			<button>+</button>
+			<button className="fs-2 p-2">+</button>
 
-			{!validation && <div className="validation">Añadir una tarea</div>}
+			{!validation && (
+				<div className="validation">Debes escribir una tarea</div>
+			)}
 		</form>
 	);
 };
