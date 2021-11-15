@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const TaskForm = props => {
 	const [inputText, setInputText] = useState("");
@@ -13,7 +14,10 @@ const TaskForm = props => {
 	const submit = e => {
 		e.preventDefault();
 		if (inputText.trim() != "") {
-			props.newTask(inputText);
+			props.newTask({
+				label: inputText,
+				done: false
+			});
 			setInputText("");
 			setValidation(true);
 		} else {
@@ -40,3 +44,7 @@ const TaskForm = props => {
 };
 
 export default TaskForm;
+
+TaskForm.propTypes = {
+	newTask: PropTypes.func
+};
